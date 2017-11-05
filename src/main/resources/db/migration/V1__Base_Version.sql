@@ -1,0 +1,40 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2017-11-05 21:27
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Sasi
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `iot_app_db` DEFAULT CHARACTER SET utf8 ;
+
+CREATE TABLE IF NOT EXISTS `iot_app_db`.`sensors_data` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `sensor_id` INT(11) NOT NULL,
+  `timestamp` TIMESTAMP NULL DEFAULT NULL,
+  `value` DOUBLE NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `sensors_data_sensor_id_idx` (`sensor_id` ASC),
+  CONSTRAINT `sensors_data_sensor_id`
+    FOREIGN KEY (`sensor_id`)
+    REFERENCES `iot_app_db`.`sensors` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `iot_app_db`.`sensors` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL DEFAULT NULL,
+  `type` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
