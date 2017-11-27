@@ -1,0 +1,28 @@
+{
+	"sensors": [
+		{
+			"sensorId": "TMP001",
+			"type": "temperature",
+			"min": 78,
+			"max": 110
+		},
+		{
+			"sensorId": "TMP002",
+			"type": "temperature",
+			"min": 78,
+			"max": 110
+		},
+		{
+			"sensorId": "Light001",
+			"type": "Ambience",
+			"min": 120,
+			"max": 400
+		},
+		{
+			"sensorId": "Light002",
+			"type": "Ambience",
+			"min": 120,
+			"max": 400
+		}
+	]
+}
